@@ -1,6 +1,6 @@
 import "./banner.css"
 export const Banner = ()=>(
-<section className="banner">
+<section id= "home" className="banner">
         <div className="container">
           <div className="banner__content">
             <h1>Přijď to ochutnat!</h1>
