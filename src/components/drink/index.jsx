@@ -1,5 +1,6 @@
 import "./style.css"
-export const Drink =({name, image})=>{
+import { Layer } from "../Layer/index.jsx"
+export const Drink =({id, name, ordered, image, layers})=>{
     return (
 
 
@@ -10,7 +11,7 @@ export const Drink =({name, image})=>{
                 </div>
                 <div className="drink__info">
                   <h3>{name}</h3>
-                 
+                 {layers.map((layer,index)=> <Layer key={index} color={layer.color} label = {layer.label}/>)}
                 </div>
               </div>
               <form className="drink__controls">

@@ -1,5 +1,5 @@
 import "./menu.css"
-import { Drink } from "../Drink"
+import { Drink } from "../drink/index"
 
 export const Menu =() => (
 
