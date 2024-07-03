@@ -1,8 +1,19 @@
 import "./menu.css"
 import { Drink } from "../drink/index"
 
-export const Menu =() => (
-
+export const Menu =({ drinks }) => {
+console.log('Menu',drinks)
+const drinkElm = drinks.map(({ id, name, ordered, image, layers }) => (
+  <Drink
+    key={id}
+    id={id}
+    name={name}
+    ordered={ordered}
+    image={`http://localhost:4000${image}`}
+    layers={layers}
+  />
+));
+return (
 
 <section id = "menu" className="menu">
         <div className="container">
@@ -10,30 +21,13 @@ export const Menu =() => (
           <p className="menu-intro">
             Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
           </p>
-          <div className="drinks-list">
-          <Drink
-          id={0}
-          name="Romano"
-          ordered={false}
-          image="http://localhost:4000/assets/cups/romano.png"
-          layers={[
-            {
-              color: '#fbdf5b',
-              label: 'citrón',
-            },
-            {
-              color: '#613916',
-              label: 'espresso',
-            },
-          ]}
-        />
-      </div>
-      <div className="order-detail">
-        <a href="/order.html">Detail objednávky</a>
-      </div>
-    </div>
-    
+          <div className="drinks-list">{drinkElm}</div>
 
-        
+<div className="order-detail">
+  <a href="/order.html">Detail objednávky</a>
+</div>
+</div>
+           
       </section>
-      )
+      );
+    }
