@@ -1,7 +1,12 @@
 import "./style.css"
 import { Layer } from "../Layer/index.jsx"
+
 export const Drink =({id, name, ordered, image, layers})=>{
-    return (
+  const layerElm = layers.map(({label, color }) => (
+    <Layer key={label} color={color} label={label} />
+  ))
+  
+  return (
 
 
 <div className="drink">
@@ -11,13 +16,17 @@ export const Drink =({id, name, ordered, image, layers})=>{
                 </div>
                 <div className="drink__info">
                   <h3>{name}</h3>
-                 {layers.map((layer,index)=> <Layer key={index} color={layer.color} label = {layer.label}/>)}
+                  {layerElm}
+
                 </div>
               </div>
-              <form className="drink__controls">
-               
-                <button className="order-btn">
-                  Objednat
+              <form data-id={id} className="drink__controls">
+               <input type = "hidden" className="order-id" value="1" />
+
+                <button 
+                className= {ordered ? 'order-btn .order-btn--ordered' : 'order-btn'}>
+                  {ordered ? 'Zrušit' : 'Objednat'}
+
                 </button>
               </form>
             </div>

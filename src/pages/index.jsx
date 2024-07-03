@@ -35,3 +35,29 @@ document.querySelector(".nav-btn").addEventListener("click", () => {
 rolloutNav.addEventListener("click", () => {
   rolloutNav.classList.add("nav-closed")
 })
+
+const formElm = document.querySelectorAll('form');
+formElm.forEach((form) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    console.log(form.dataset.id);
+
+    console.log(drinks);
+
+    const foundDrink = drinks.find((drink) => drink.id === Number(form.dataset.id));
+    const ordered = foundDrink.ordered;
+    console.log(foundDrink);
+
+    await fetch(`http://localhost:4000/api/drinks/${form.dataset.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([
+        { op: 'replace', path: '/ordered', value: !ordered },
+      ]),
+    });
+
+    window.location.reload();
+  });
+});
