@@ -2,7 +2,7 @@ import "./menu.css"
 import { Drink } from "../drink/index"
 
 export const Menu =({ drinks }) => {
-console.log('Menu',drinks)
+//console.log('Menu',drinks)
 const drinkElm = drinks.map(({ id, name, ordered, image, layers }) => (
   <Drink
     key={id}

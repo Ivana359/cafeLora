@@ -6,7 +6,7 @@ export const Header = ({showMenu = true}) => {
   <div className="site-logo"></div>
 
   <div className="navigation">
-    <button className="nav-btn"></button>
+    <button className="nav-btn" title="nav-btn"></button>
     <nav className="rollout-nav nav-closed">
       <a href="#home">domů</a>
       <a href="#menu">menu</a>

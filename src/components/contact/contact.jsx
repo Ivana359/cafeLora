@@ -21,7 +21,7 @@ export const Contact =() => (
             </table>
             <img
               className="contact__map"
-              src={mapa}
+              src={mapa} alt = "mapa"
             />
           </div>
         </div>
